@@ -1,19 +1,16 @@
-const mongo = require('mongodb').MongoClient
+const mongoose = require('mongoose')
 
-mongo.MongoClient = {
-    useUnifiedTopology: true
-}
+console.log('prevConnect');
 
-mongo.connect(
-  'mongodb+srv://valid:valid@cluster0.64l6m.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
-  (err, client) => {
-    if (err) {
-      console.log('Connection error: ', err)
-      throw err
+const signUpTemplate = new mongoose.Schema({
+    tel: {
+        type: String,
+        require: true
+    },
+    name: {
+        type: String,
+        require: true
     }
+})
 
-    console.log('Connected')
-
-    client.close()
-  }
-)
+module.exports = mongoose.model('tel_name', signUpTemplate)
