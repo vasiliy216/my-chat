@@ -1,8 +1,7 @@
 POST http://localhost:4000/app/signup
-
 Content-Type: application/json
 
 {
-    "tel": "3755555",
+    "tel": "sdsdsvsdvdvs",
     "name": "vava"
 }

@@ -1,15 +1,13 @@
 const mongoose = require('mongoose')
 
-console.log('prevConnect');
-
 const signUpTemplate = new mongoose.Schema({
     tel: {
         type: String,
-        require: true
+        required: true
     },
     name: {
         type: String,
-        require: true
+        required: true
     }
 })
 

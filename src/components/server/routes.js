@@ -1,13 +1,15 @@
 const express = require('express');
-const { request } = require('express');
 const router = express.Router();
 const sinInModule = require('./sinInModule');
 
 router.post('/signup', (req, res) => {
     const sinUsers = new sinInModule({
-        tel: request.body.tel,
-        name: request.body.name
+        tel: req.body.tel,
+        name: req.body.name
     })
+
+    console.log(req.body.tel)
+
     sinUsers.save()
     .then(data => {
         res.json(data)
@@ -17,5 +19,4 @@ router.post('/signup', (req, res) => {
     })
 })
 
-//router.get('/signin')
 module.exports = router

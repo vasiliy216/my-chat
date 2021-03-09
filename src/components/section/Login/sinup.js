@@ -25,14 +25,15 @@ function SinUp() {
 
     const validate = () => {
 
-        if (!/^[a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/.test(form.email)) 
-            setErrForm({...errForm, errEmail: true});
-        else setErrForm({...errForm, errEmail: false});
+        if (!/^[a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/.test(form.email))
+            setErrForm({ ...errForm, errEmail: true });
+        else setErrForm({ ...errForm, errEmail: false });
 
-        setSubmit(prev => Object.values(errForm).includes(true));
+
+        setSubmit(!submit);
+
+
     }
-
-    console.log(errForm,submit);
 
     return (
         <div className="form_body">
