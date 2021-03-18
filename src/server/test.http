@@ -1,0 +1,8 @@
+POST http://localhost:4000/users/604cded4027d4709e0637b99
+Content-Type: application/json
+
+{
+    "email":"hello@asd.ru",
+    "fullName":"asdadasda",
+    "password":"123"
+}

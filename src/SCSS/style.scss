@@ -2,7 +2,8 @@
 @import "vars";
 
 body {
-    font-family: 'Comfortaa', cursive;
+    font-family: 'Fira Sans', sans-serif, FontAwesome;
+    // background-color: #000;
 }
 
 * {
@@ -33,7 +34,7 @@ body {
             margin-left: 20px;
             margin-bottom: 40px;
 
-            li {
+            a {
                 color: $grey;
                 font-size: 19px;
                 font-weight: bold;
@@ -41,6 +42,7 @@ body {
                 cursor: pointer;
                 position: relative;
                 transition-duration: .3s;
+                text-decoration: none;
 
                 &:after {
                     opacity: 0;
@@ -49,14 +51,13 @@ body {
                     width: 100%;
                     height: 3px;
                     margin-top: 0px;
-                    border-radius: 20px;
                     position: absolute;
                     background-color: $turquoise;
                     transition-duration: .3s;
                 }
             }
 
-            li + li {
+            a + a {
                 margin-left: 30px;
             }
 
@@ -75,14 +76,13 @@ body {
             flex-flow: column;
         }
 
-        p {
+        >p {
             margin-left: 20px;
             color: $grey;
         }
 
         input {
             width: 400px;
-            border-radius: 50px;
             border: 1px solid #000;
             height: 40px;
             background-color: #25263d;
@@ -90,32 +90,58 @@ body {
             color: #fff;
         }
 
-        .password {
+        label {
             position: relative;
             
             input {
                 padding-right: 40px;
+                padding-left: 40px;
             }
 
-            i {
+            span {
                 position: absolute;
-                right: 15px;
-                top: 10px;
-                color: #fff;
+                color: #8587ad;
                 font-size: 19px;
+                top: 50%;
+                left: 3%;
+                transform: translate(-3%, -50%);
             }
+
+            >i {
+                position: absolute;
+                right: 3%;
+                top: 50%;
+                font-size: 19px;
+                transform: translate(3%, -50%);
+            }
+
+            .fa-eye-slash {
+                color: #fff;
+                cursor: pointer;
+            }
+
+            .fa-check-circle {
+                color: $turquoise;
+            }
+
+            .fa-circle {
+                color: $red;
+                font-size: 13px;
+            }
+        }
+
+        label + label {
+            margin-top: 35px;
         }
 
         .password_line {
             height: 7px;
-            margin: 15px 20px;
-            border-radius: 50px;
+            margin: 27px 0 0;
             background-color: #25263d;
 
             &_color {
                 transition-duration: .3s;
                 height: inherit;
-                border-radius: inherit;
             }
 
             span {
@@ -125,7 +151,6 @@ body {
         }
 
         .button_form {
-            border-radius: 50px;
             background-color: $turquoise;
             border: none;
             font-weight: bold;
@@ -138,7 +163,152 @@ body {
 }
 
 .error_form {
-    border-color: red !important;
+    border-color: $red !important;
+}
+
+.error_mes {
+    position: absolute;
+    margin: 0;
+    color: $red;
+    bottom: -20px;
+    font-size: 14px;
+}
+
+.header_left {
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-flow: column;
+    height: 100vh;
+    width: 100px;
+    border-right: 1px solid rgba(151,151,151,.3);
+
+    .logo {
+        font-size: 37px;
+        font-weight: 500;
+        color: #fff;
+
+        > * {
+            width: 100%;
+            display: flex;
+
+            div {
+                margin: auto;
+                transform: rotate(-90deg);
+            }
+        }
+        
+        &_one {
+            height: 110px;
+            background-color: $turquoise;
+        }
+
+        &_two {
+            height: 95px;
+        }
+    }
+
+    .menu {
+        margin: auto 0 0;
+        padding: 0;
+
+        >li {
+            display: flex;
+            width: 100%;
+            position: relative;
+
+            .slide {
+                display: flex;
+                height: 50px;
+                color: #fff;
+                position: absolute;
+                top: 0;
+                right: 0;
+                transform: translateX(100%);
+                z-index: 1000;
+
+                div {
+                    margin: auto;
+                    opacity: 0;
+                    transform: translateX(0px);
+                    transition-duration: $time;
+                }
+            }
+        }
+
+        li + li {
+            margin-top: 20px;
+        }
+
+        .icon:hover ~ .slide div {
+            opacity: 1;
+            transform: translateX(10px);
+        }
+
+        .icon:hover ~ .slide {
+            border-left: 1px solid $turquoise;
+        }
+
+        .icon:hover {
+            background-color: $turquoise;
+            border-color: $turquoise;
+
+            i {
+                color: $dark;
+            }
+        }
+
+        .icon {
+            margin: auto;
+            width: 50px;
+            height: 50px;
+            border-radius: 100%;
+            cursor: pointer;
+            background-color: transparent;
+            border: 2px solid #fff;
+            transition-duration: .3s;
+
+            i {
+                color: #fff;
+                font-size: 21px;
+            }
+        }
+    }
+
+    .map {
+        text-align: center;
+        margin-top: 50px;
+
+        .date {
+
+            .day {
+                color: #fff;
+                font-size: 50px;
+                font-weight: bold;
+            }
+
+            .month {
+                font-weight: 100;
+                color: #fff;
+
+                span {
+                    height: 100%;
+                    width: 1px;
+                    background-color: #fff;
+                }
+            }
+        }
+
+        .adress {
+            color: #fff;
+            font-size: 15px;
+            margin-top: 20px;
+            margin-bottom: 50px;
+            font-weight: 100;
+            letter-spacing: 1px;
+        }
+    }
 }
 
 @import "media";

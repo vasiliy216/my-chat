@@ -1,10 +1,18 @@
 import React from 'react';
-import Login from '../src/components/section/Login/login';
+import { Route } from 'react-router-dom'
+
+import Auth from '../src/pages/Auth/Auth'
+import Chat from '../src/components/section/chat/chat'
+import Home from '../src/pages/Home/Home' 
 
 function App() {
 
   return (
-    <Login Login = {['SING IN', 'SING UP']}/>
+    <>
+      <Route exact path={["/", "/login", "/register"]} component={Auth} />
+      <Route exact path="/im" component={Chat} />
+      <Route exact path="/message" component={Home} />
+    </>
   );
 }
 

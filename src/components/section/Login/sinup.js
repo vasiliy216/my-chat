@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PasswordStrengtMeter from '../../common/PasswordStrengtMeter';
+import axios from 'axios';
 
 function SinUp() {
 
@@ -15,9 +16,19 @@ function SinUp() {
         errPassword: false
     })
 
+    const [isLoading, setIsLoading] = useState(false);
+
     const [bool, setBool] = useState(false);  //icon
 
-    const [submit, setSubmit] = useState(false);
+    const post = async () => {
+
+        setIsLoading(true);
+
+        await axios.post('http://localhost:4000/app/signup', form);
+
+    }
+
+    console.log(isLoading);
 
     const onHandler = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value });
@@ -25,15 +36,16 @@ function SinUp() {
 
     const validate = () => {
 
-        if (!/^[a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/.test(form.email))
-            setErrForm({ ...errForm, errEmail: true });
-        else setErrForm({ ...errForm, errEmail: false });
-
-
-        setSubmit(!submit);
-
+        if (!/^[a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/.test(form.email)) {
+            setErrForm({...errForm, errEmail: true});
+        }
+        else {
+            setErrForm({ ...errForm, errEmail: false });
+        }
 
     }
+
+    // console.log(errForm)
 
     return (
         <div className="form_body">
@@ -62,10 +74,12 @@ function SinUp() {
                     name="password"
                     className={errForm.errPassword ? 'error_form' : ''}
                     required />
-                <i onClick={() => setBool(!bool)} className={bool ? 'fas fa-eye' : 'fas fa-eye-slash'}></i>
+                    <i onClick={() => setBool(!bool)} className={bool ? 'fas fa-eye' : 'fas fa-eye-slash'}></i>
             </label>
             <PasswordStrengtMeter password={form.password} />
-            <button onClick={validate} /* type={submit ? 'button' : 'submit'} */ type='button' className="button_form">SING UP</button>
+            <button onClick={post} type="button" className="button_form" disabled={isLoading}>
+                {isLoading ? "Loading..." : "SING UP"}
+            </button>
         </div>
     )
 }

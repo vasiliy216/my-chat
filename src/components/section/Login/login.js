@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import SinIn from './sinin';
 import SinUp from './sinup';
 
-function Login({ Login }) {
+function Login({ Login, onLogin }) {
 
     const [state, setState] = useState(0);
     const [log, setLog] = useState(Login[0]);
@@ -28,7 +28,7 @@ function Login({ Login }) {
                         ))
                     }
                 </ul>
-                {log === Login[0] ? <SinIn /> : <SinUp />}
+                {log === Login[0] ? <SinIn onLogin={ onLogin } /> : <SinUp />}
             </form>
         </div>
     );

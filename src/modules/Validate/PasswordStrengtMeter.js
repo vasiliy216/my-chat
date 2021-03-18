@@ -6,23 +6,6 @@ const PasswordStrengtMeter = ({ password }) => {
     const ResultMeter = Zxcvbn(password);
     
     const num = ResultMeter.score * 25;
-
-    const createPassLabel = () => {
-        switch (ResultMeter.score) {
-            case 0:
-                return 'Very weak';
-            case 1:
-                return 'Weak';
-            case 2:
-                return 'Fear';
-            case 3:
-                return 'Good';
-            case 4:
-                return 'Strong';
-            default:
-                return '';
-        }
-    }
     
     const funcProgressColor = () => {
         switch (ResultMeter.score) {
@@ -49,7 +32,6 @@ const PasswordStrengtMeter = ({ password }) => {
     return (
         <div className='password_line'>
             <div className='password_line_color' style={ changePasswordColor() }></div>
-            <span style={{ color: funcProgressColor() }}>{ createPassLabel() }</span>
         </div>
     )
 }
