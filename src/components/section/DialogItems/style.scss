@@ -1,0 +1,88 @@
+.im_dialog_wraper {
+    height: auto;
+    width: 310px;
+    display: block;
+
+    .im_dialog {
+        display: flex;
+        position: relative;
+        padding: 7px 16px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #f2f6fa;
+        } 
+
+        .im_dialog_meta {
+            position: absolute;
+            right: 16px;
+            top: 7px;
+            color: #b3b3b3;
+            font-size: 14px;
+        }
+
+        .im_dialog_avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            overflow: hidden;
+            position: relative;
+
+            img {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 150%;
+                height: auto;
+                transform: translate(-50%, -50%);
+            }
+
+            .dialog_no_avatar {
+                height: 100%;
+                align-items: center;
+                justify-content: center;
+                display: flex;
+                color: #fff;
+                font-size: 23px;
+            }
+        }
+
+        .im_dialog_message {
+            width: 55%;
+            display: flex;
+            flex-flow: wrap;
+            margin: 0 auto 0 20px;
+            align-items: center;
+
+            .im_dialog_title {
+                font-weight: 500;
+            }
+            
+            .im_message {
+                font-size: 14px;
+                color: #808080;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+
+                span {
+                    color: #11c0a2;
+                }
+            }
+
+            .im_readed_message {
+                position: absolute;
+                right: 16px;
+                bottom: 10px;
+                padding: 5px;
+                background-color: #11c0a2;
+                color: #fff;
+                font-size: 11px;
+                font-weight: bold;
+                text-align: center;
+                min-width: 21px;
+                border-radius: 50px;
+            }
+        }
+    }
+}

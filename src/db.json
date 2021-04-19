@@ -1,0 +1,102 @@
+[
+    {
+        "_id": "6062549610af02bda920727f",
+        "text": "Laborum sunt incididunt anim aliqua proident. Voluptate et reprehenderit cillum nisi duis minim ipsum. Exercitation occaecat amet cillum laboris sit pariatur velit tempor.",
+        "date": "Sat Jun 13 1981 20:14:58 GMT+0400 (Москва, летнее время)",
+        "user": {
+            "_id": "6062549636b1653579a296b4",
+            "fullname": "Rose Cook",
+            "avatar": null
+        }
+    },
+    {
+        "_id": "6062549620be207539ab389c",
+        "text": "Nostrud tempor adipisicing in adipisicing qui exercitation reprehenderit duis elit qui consequat non laboris. Amet culpa eu mollit velit velit irure sit officia veniam. Adipisicing ullamco aliqua duis do ea occaecat est sint.",
+        "date": "Sun Aug 08 1971 11:46:06 GMT+0300 (Москва, стандартное время)",
+        "user": {
+            "_id": "60625496b765f4e8bc9e0bea",
+            "fullname": "Brady Bradford",
+            "avatar": null
+        }
+    },
+    {
+        "_id": "6062549601c2153792c17716",
+        "text": "Sint dolore eu fugiat ut consectetur est minim sunt ullamco duis. Lorem in consequat aliquip magna et ipsum quis. Consequat id ad id enim reprehenderit et ad mollit aliqua ipsum.",
+        "date": "Wed Feb 02 2021 09:41:10 GMT+0200 (Москва, стандартное время)",
+        "user": {
+            "_id": "60625496421d818d5c33b4fb",
+            "fullname": "Edith Middleton",
+            "avatar": null
+        }
+    },
+    {
+        "_id": "606254966a3d89ba2d939901",
+        "text": "Velit ea aliquip est duis et. Ad dolor voluptate laboris excepteur nisi cillum occaecat ad aute labore enim incididunt. In ullamco sunt sit non labore deserunt deserunt ea Lorem.",
+        "date": "Sun Nov 24 1991 20:50:04 GMT+0200 (Москва, стандартное время)",
+        "user": {
+            "_id": "606254966132313dae9561dd",
+            "fullname": "Tyson Murray",
+            "avatar": null
+        }
+    },
+    {
+        "_id": "60625496f12536894693632c",
+        "text": "Commodo labore dolor id magna adipisicing. Id ipsum tempor elit nostrud nulla officia occaecat et officia laboris non labore cupidatat. Mollit tempor nisi fugiat consectetur sint laborum in officia proident nulla quis esse.",
+        "date": "Fri Mar 27 1970 02:31:46 GMT+0300 (Москва, стандартное время)",
+        "user": {
+            "_id": "60625496e602df448cfa03a2",
+            "fullname": "English Floyd",
+            "avatar": null
+        }
+    },
+    {
+        "_id": "60625496c82beab93b49b943",
+        "text": "Veniam tempor nisi qui ipsum sunt ullamco sit commodo eiusmod in fugiat. Duis deserunt magna magna mollit ea exercitation consequat. Magna culpa in esse fugiat commodo culpa sint eiusmod exercitation proident aliqua consectetur.",
+        "date": "Wed Sep 11 1991 02:48:14 GMT+0300 (Москва, летнее время)",
+        "user": {
+            "_id": "6062549697eea9c905039fa9",
+            "fullname": "Denise Salinas",
+            "avatar": null
+        }
+    },
+    {
+        "_id": "60625496ceaf089d2d831791",
+        "text": "In cupidatat non incididunt aliqua irure laborum duis minim reprehenderit. Proident consectetur enim culpa proident sint irure. Eiusmod ea eu sunt cillum voluptate ea anim labore aliquip.",
+        "date": "Thu Dec 25 1986 05:19:31 GMT+0300 (Москва, стандартное время)",
+        "user": {
+            "_id": "60625496ba26b510b3ffa3d5",
+            "fullname": "Billie Hoffman",
+            "avatar": null
+        }
+    },
+    {
+        "_id": "60625496c6478a856b075fcb",
+        "text": "Reprehenderit sunt irure tempor sit amet velit. Anim nulla elit elit anim id eu irure mollit veniam consequat. Consequat laboris minim officia dolore incididunt tempor in occaecat sit nulla deserunt duis id nulla.",
+        "date": "Wed Sep 01 1982 09:42:40 GMT+0400 (Москва, летнее время)",
+        "user": {
+            "_id": "6062549643af47a42b465d86",
+            "fullname": "Tia Ortega",
+            "avatar": null
+        }
+    },
+    {
+        "_id": "6062549682293c7c4dbafa5a",
+        "text": "Duis nulla ea id incididunt ut. Eiusmod sint aliquip veniam nisi ex excepteur officia duis laboris consectetur occaecat velit. Velit ex sunt minim deserunt nisi.",
+        "date": "Tue Apr 26 1983 04:52:12 GMT+0400 (Москва, летнее время)",
+        "user": {
+            "_id": "606254964d5a361547c86d3d",
+            "fullname": "Sallie Sparks",
+            "avatar": null
+        }
+    },
+    {
+        "_id": "60625496b138912c64119ad3",
+        "text": "Pariatur sit exercitation pariatur laborum. Est laborum ut irure fugiat adipisicing. Do aute exercitation magna esse proident qui cillum labore duis consectetur deserunt reprehenderit.",
+        "date": "Sun Aug 18 2019 08:14:21 GMT+0300 (Москва, стандартное время)",
+        "user": {
+            "_id": "606254967de17f79d14d6f0b",
+            "fullname": "Cooke Clements",
+            "avatar": null
+        }
+    }
+]

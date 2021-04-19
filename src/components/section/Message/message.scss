@@ -61,6 +61,10 @@
         img {
             transform: translate(-50%, -50%);
         }
+
+        tt {
+            background: linear-gradient(to right, #000, #fff);
+        }
     }
 
     .message_im {
@@ -71,6 +75,7 @@
 
     .message_block {
         background-color: #00ba8e;
+        position: relative;
         border-radius: 15px 0 15px 15px;
     }
 
@@ -80,13 +85,31 @@
         font-size: 13px;
         display: inline-block;
     }
+    
+    .icon_check_dialogs {
+        left: -20px;
+        bottom: 0;
+    }
 }
 
 .mes {
     display: flex;
     flex-flow: column;
+    width: calc(100% + 1px);
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    margin-top: auto;
 
-    >div + div {
+    &:hover::-webkit-scrollbar-thumb {
+        background-color: rgba(17, 192, 162, .4);
+    }
+
+    >div:nth-child(1) {
+        margin-top: auto;
+    }
+
+    >div {
         margin-top: 10px;
     }
 }

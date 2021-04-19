@@ -1,0 +1,22 @@
+.no_message {
+    display: flex;
+    color: #7777;
+    height: 100%;
+
+    .no_message_body {
+        display: flex;
+        flex-flow: column;
+        margin: auto;
+    }
+
+    i {
+        margin: 0 auto 20px;
+        font-size: 60px;
+    }
+
+    span {
+        width: 200px;
+        text-align: center;
+        font-size: 18px;
+    }
+}

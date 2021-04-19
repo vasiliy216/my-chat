@@ -1,0 +1,52 @@
+.im_bottom_panel_wrap { 
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    .im_send_form_wrap {
+        margin: auto;
+        width: 100%;
+        display: flex;
+
+        .im_textarea_send {
+            width: 80%;
+            position: relative;
+            margin: auto;
+
+            .im_textarea {
+                width: 100%;
+                resize: none;
+    
+                min-height: 26px;
+                max-height: 200px;
+                overflow-y: auto;
+                overflow-x: hidden;
+                line-height: 17px;
+                box-sizing: border-box;
+                border-radius: 6px;
+                border: 2px solid rgba(17, 192, 162, .8) !important;
+    
+                padding: 10px 40px 10px 20px;
+                margin-bottom: 0;
+                border: 0;
+            }
+
+            .fa-location-arrow {
+                position: absolute;
+                color: #777777;
+                top: 50%;
+                right: 14px;
+                font-size: 20px;
+                transform: translateY(-60%) rotate(45deg);
+            }
+        }
+
+        .im_avatar_isme {
+
+        }
+
+        .im_avatar_isyou {
+
+        }
+    }
+}

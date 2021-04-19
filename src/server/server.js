@@ -4,61 +4,40 @@ const cors = require("cors")
 const dotevn = require("dotenv")
 const bodyParser = require("body-parser")
 
-const UserModal = require("../server/schemas/User")
+const { UserController, DialogController, MessageController } = require("../server/controllers/")
+const { updateLastSeen } = require("./middlewares")
 const app = express();
 
-app.use(cors())
-app.use(bodyParser.json())
+dotevn.config();
 
-dotevn.config()
+app.use(cors());
+app.use(bodyParser.json());
+app.use(updateLastSeen);
 
-app.get('/users/:id', (req, res) => {
-    const id = req.params.id;
-    UserModal.findById(id, (err, user) => {
-        if (err) {
-            return res.status(404).json({
-                message: 'User not found'
-            })
-        }
-        res.json(user);
-    })
-});
+const User = new UserController();
+const Dialog = new DialogController();
+const Message = new MessageController();
 
-app.delete('/users/:id', (req, res) => {
-    const id = req.params.id;
-    UserModal.findOneAndRemove({_id: id})
-    .then(data => {
-        res.json({
-            message: 'User deleted'
-        })
-    })
-    .catch(err => {
-        res.json({
-            message: 'User not found'
-        })
-    })
-})
+app.get('/users/:id', User.find);
+app.delete('/users/:id', User.delete);
+app.post('/user/registr', User.create);
 
-app.post('/user/registr', (req, res) => {
-    const Users = new UserModal({
-        email: req.body.email,
-        fullName: req.body.fullName,
-        password: req.body.password,
-    })
+app.get('/dialogs/:id', Dialog.index);
+app.delete('/dialogs/:id', Dialog.delete);
+app.post('/dialogs', Dialog.create);
 
-    Users.save()
-    .then(data => {
-        res.json(data)
-    }).catch(error => {
-        res.json(error)
-    })
-});
+app.get('/messages', Message.index);
+app.delete('/messages/:id', Message.delete);
+app.post('/messages', Message.create);
 
 mongoose.connect(process.env.DATABASE_ACCESS, {
-    useNewUrlParser: true,
-    useCreateIndex: true
-})
+    UseNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true
+});
 
-app.listen(4000, () => {
-    console.log('Server connected')
+mongoose.set('useFindAndModify', false);
+
+app.listen(process.env.PORT, () => {
+    console.log(`Server: http://localhost:${ process.env.PORT }`);
 })

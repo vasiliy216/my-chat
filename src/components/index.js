@@ -1,0 +1,5 @@
+export { default as Message } from '../components/section/Message'
+export { default as Messages } from '../components/section/Messages'
+export { default as NewChat } from '../components/section/new-chat'
+export { default as Dialogs } from '../components/section/Dialogs'
+export { default as DialogItem } from '../components/section/DialogItems'

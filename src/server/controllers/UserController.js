@@ -1,48 +1,53 @@
-const express = require("express")
-const UserModal = require("../schemas/User")
+const { UserModal } = require("../schemas/")
 
 class UserController {
 
-    constructor() {
-        this.req = express.request;
-        this.res = express.response;
-    }
-
-    index() {
+    find(req, res) {
         const id = req.params.id;
-        console.log('index')
+        console.log("get ", id)
         UserModal.findById(id, (err, user) => {
             if (err) {
                 return res.status(404).json({
-                    message: 'Not found'
+                    message: 'User not found'
                 })
             }
             res.json(user);
         })
     }
 
-    create() {
-        const Users = new UserModal({
-            email: 'asd@asd.r',
-            fullName: 'asd@asd.r',
-            password: 'asd@asd.r',
+    delete(req, res) {
+        const id = req.params.id;
+        UserModal.findOneAndDelete({_id: id})
+        .then(data => {
+            if(!data) {
+                return res.status(404).json({
+                    message: 'User not found'    
+                })
+            }
+            res.json({
+                message: `User ${data.fullName} deleted`
+            })
         })
+        .catch(err => {
+            res.status(404).json(err)
+        })
+    }
+
+    create(req, res) {
+        const Users = new UserModal({
+            email: req.body.email,
+            fullName: req.body.fullName,
+            password: req.body.password,
+        })
+    
+        console.log('User registr ', req.body.email);
     
         Users.save()
         .then(data => {
-            this.res.json(data)
+            res.json(data)
         }).catch(error => {
-            this.res.json(error)
+            res.json(error)
         })
-    }
-
-    asd() {
-        return console.log('ghgk');
-    }
-
-    qwe(g) {
-        const zxc = 'asd';
-        console.log(zxc);
     }
 
 }

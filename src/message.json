@@ -1,0 +1,113 @@
+[
+    {
+        "_id": "60646d3500edce01c7a8762d",
+        "dialog": [
+            {
+                "isMe": true,
+                "avatar": null,
+                "text": "Elit pariatur est irure ut nisi elit do reprehenderit dolor dolor. Veniam voluptate duis tempor laboris non. Exercitation quis aute magna sunt ea nulla voluptate aliquip nostrud anim nulla laborum cupidatat incididunt.",
+                "date": "Sat Jun 16 1973 08:20:08 GMT+0300 (Москва, стандартное время)"
+            },
+            {
+                "isMe": true,
+                "avatar": null,
+                "text": "Eiusmod ad laboris tempor esse aliquip cupidatat amet laborum ex nisi. Et do fugiat elit exercitation adipisicing ex pariatur commodo duis irure. Veniam laborum et tempor duis cupidatat.",
+                "date": "Sun Jul 06 2003 17:20:13 GMT+0300 (Москва, летнее время)"
+            },
+            {
+                "isMe": true,
+                "avatar": null,
+                "text": "Laboris quis sunt aliqua ut nisi commodo mollit laborum consectetur. Sint laborum duis dolor eu consequat ut nulla voluptate fugiat dolore. Ipsum nostrud eiusmod nisi anim esse consequat officia est qui laborum.",
+                "date": "Sat Feb 10 1990 06:08:22 GMT+0300 (Москва, стандартное время)"
+            },
+            {
+                "isMe": true,
+                "avatar": null,
+                "text": "Sunt dolor esse velit officia officia. Cillum laborum id consectetur qui. Magna commodo exercitation pariatur eu adipisicing id.",
+                "date": "Thu Mar 23 1995 18:33:42 GMT+0200 (Москва, стандартное время)"
+            }
+        ]
+    },
+    {
+        "_id": "60625496c82beab93b49b943",
+        "dialog": [
+            {
+                "isMe": true,
+                "avatar": null,
+                "text": "Incididunt dolore pariatur enim anim laboris cupidatat Lorem. Minim voluptate consequat voluptate ullamco tempor veniam ea dolor enim qui laboris cillum. Ipsum quis minim velit quis do adipisicing velit Lorem excepteur.",
+                "date": "Wed Dec 08 1976 19:21:12 GMT+0300 (Москва, стандартное время)"
+            },
+            {
+                "isMe": false,
+                "avatar": null,
+                "text": "Culpa ea consectetur ad consectetur elit exercitation occaecat. Irure excepteur excepteur sit esse aliqua do fugiat ipsum fugiat commodo ex id incididunt consectetur. Aliquip ipsum cillum ullamco incididunt.",
+                "date": "Sat Aug 08 1970 12:54:48 GMT+0300 (Москва, стандартное время)"
+            },
+            {
+                "isMe": true,
+                "avatar": null,
+                "text": "Incididunt Lorem ea cillum nisi elit tempor aliqua sit eiusmod anim sit sint ea excepteur. Dolor qui nulla dolor deserunt pariatur do ut qui in. Aute eu elit adipisicing tempor occaecat ad consequat elit.",
+                "date": "Tue Sep 05 2017 14:57:44 GMT+0300 (Москва, стандартное время)"
+            },
+            {
+                "isMe": false,
+                "avatar": null,
+                "text": "Nulla id ea nulla dolore in ipsum sint veniam dolore irure veniam in nostrud velit. Sint laborum id duis Lorem adipisicing. Veniam cillum pariatur esse proident magna dolore occaecat labore.",
+                "date": "Tue Aug 30 2005 05:22:25 GMT+0300 (Москва, летнее время)"
+            },
+            {
+                "isMe": true,
+                "avatar": null,
+                "text": "Incididunt dolore pariatur enim anim laboris cupidatat Lorem. Minim voluptate consequat voluptate ullamco tempor veniam ea dolor enim qui laboris cillum. Ipsum quis minim velit quis do adipisicing velit Lorem excepteur.",
+                "date": "Wed Dec 08 1976 19:21:12 GMT+0300 (Москва, стандартное время)"
+            },
+            {
+                "isMe": false,
+                "avatar": null,
+                "text": "Culpa ea consectetur ad consectetur elit exercitation occaecat. Irure excepteur excepteur sit esse aliqua do fugiat ipsum fugiat commodo ex id incididunt consectetur. Aliquip ipsum cillum ullamco incididunt.",
+                "date": "Sat Aug 08 1970 12:54:48 GMT+0300 (Москва, стандартное время)"
+            },
+            {
+                "isMe": true,
+                "avatar": null,
+                "text": "Incididunt Lorem ea cillum nisi elit tempor aliqua sit eiusmod anim sit sint ea excepteur. Dolor qui nulla dolor deserunt pariatur do ut qui in. Aute eu elit adipisicing tempor occaecat ad consequat elit.",
+                "date": "Tue Sep 05 2017 14:57:44 GMT+0300 (Москва, стандартное время)"
+            },
+            {
+                "isMe": false,
+                "avatar": null,
+                "text": "Nulla id ea nulla dolore in ipsum sint veniam dolore irure veniam in nostrud velit. Sint laborum id duis Lorem adipisicing. Veniam cillum pariatur esse proident magna dolore occaecat labore.",
+                "date": "Tue Aug 30 2005 05:22:25 GMT+0300 (Москва, летнее время)"
+            }
+        ]
+    },
+    {
+        "_id": "60646d35a9934e9602507a0b",
+        "dialog": [
+            {
+                "isMe": true,
+                "avatar": null,
+                "text": "Culpa duis enim aliquip cupidatat sint amet reprehenderit. Occaecat dolor irure est enim. Consequat ex sint consectetur dolor velit et aute dolor adipisicing dolore enim esse pariatur.",
+                "date": "Thu Jul 07 2005 00:44:25 GMT+0300 (Москва, летнее время)"
+            },
+            {
+                "isMe": true,
+                "avatar": null,
+                "text": "Lorem magna officia est pariatur Lorem mollit. Labore incididunt minim ad ad elit labore proident. Consectetur nulla nulla enim enim reprehenderit elit deserunt nulla aliqua non dolor adipisicing consequat ullamco.",
+                "date": "Wed May 22 2013 03:36:41 GMT+0300 (Москва, стандартное время)"
+            },
+            {
+                "isMe": true,
+                "avatar": null,
+                "text": "Reprehenderit tempor velit eiusmod excepteur est quis cupidatat. Ullamco id minim nulla laboris laboris duis excepteur culpa minim. Commodo qui anim anim nisi eiusmod et aliquip exercitation veniam id magna.",
+                "date": "Thu May 03 1984 20:11:31 GMT+0400 (Москва, летнее время)"
+            },
+            {
+                "isMe": true,
+                "avatar": null,
+                "text": "Nisi cupidatat non magna elit irure culpa. Proident sit consectetur pariatur laborum nulla laborum officia nisi ad. Ad adipisicing consequat nisi aliquip culpa est mollit dolore eiusmod labore Lorem dolor.",
+                "date": "Wed Dec 16 1987 03:23:34 GMT+0300 (Москва, стандартное время)"
+            }
+        ]
+    }
+]

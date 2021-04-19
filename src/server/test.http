@@ -1,8 +1,42 @@
-POST http://localhost:4000/users/604cded4027d4709e0637b99
-Content-Type: application/json
+// User
 
-{
-    "email":"hello@asd.ru",
-    "fullName":"asdadasda",
-    "password":"123"
-}
+# POST http://localhost:4000/user/registr
+# Content-Type: application/json
+
+# {
+#     "email":"test3@asd.ru",
+#     "fullName":"test3",
+#     "password":"123"
+# }
+
+# GET http://localhost:4000/users/
+
+# DELETE http://localhost:4000/users/
+
+// Dialog
+
+# POST http://localhost:4000/dialogs
+# Content-Type: application/json
+
+# {
+#     "author": "6079023faa88631b881d417c",
+#     "partner": "60790238aa88631b881d4179"
+# }
+
+# GET http://localhost:4000/dialogs/6079023faa88631b881d417c
+
+# DELETE http://localhost:4000/users/
+
+// Message
+
+# POST http://localhost:4000/messages
+# Content-Type: application/json
+
+# {
+#     "text": "Hello! My name is Vasia.",
+#     "dialog_id": "607905ab58358d12b89e24f3"
+# }
+
+# GET http://localhost:4000/messages?dialog=607905ab58358d12b89e24f3
+
+# DELETE http://localhost:4000/messages/607c3c8787d62016683ca132

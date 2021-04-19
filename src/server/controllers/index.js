@@ -1,2 +1,3 @@
-module.exports.User = require("./UserController")
-module.exports.User = require("./UserController")
+module.exports.UserController = require("./UserController")
+module.exports.DialogController = require("./DialogController")
+module.exports.MessageController = require("./MessageController")
