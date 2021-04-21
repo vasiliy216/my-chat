@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { generatorPasswordHash } = require("../utility")
 const { isEmail } = require("validator")
 
 const UserSchema = new mongoose.Schema(
@@ -33,6 +34,17 @@ const UserSchema = new mongoose.Schema(
         timestamps: true
     }
 )
+
+UserSchema.pre('save', async function(next) {
+    var user = this;
+
+    // only hash the password if it has been modified (or is new)
+    if (!user.isModified('password')) return next();
+
+    // generate a salt
+    user.password = await generatorPasswordHash(user.password);
+    user.confirm_hash = await generatorPasswordHash(new Date().toString());
+});
 
 const UserModal = mongoose.model('User', UserSchema);
 

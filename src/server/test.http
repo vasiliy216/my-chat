@@ -1,26 +1,35 @@
 // User
 
-# POST http://localhost:4000/user/registr
+# POST http://localhost:4000/users/registr
 # Content-Type: application/json
 
 # {
-#     "email":"test3@asd.ru",
-#     "fullName":"test3",
-#     "password":"123"
+#     "email":"test5@asd.ru",
+#     "fullName":"test5",
+#     "password":"123456"
 # }
 
-# GET http://localhost:4000/users/
+# POST http://localhost:4000/users/login
+# Content-Type: application/json
 
-# DELETE http://localhost:4000/users/
+# {
+#     "email":"test5@asd.ru",
+#     "password":"123456"
+# }
+
+# GET http://localhost:4000/users/607c58544cbea116d051e965
+
+# DELETE http://localhost:4000/users/607f3decad2d87300473fb3d
 
 // Dialog
 
 # POST http://localhost:4000/dialogs
 # Content-Type: application/json
+# token: eyJhbGciOiJIUzM4NCIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImVtYWlsIjoidGVzdDNAYXNkLnJ1IiwicGFzc3dvcmQiOiIxMjMifSwiaWF0IjoxNjE4OTU5Mjc0LCJleHAiOjE2MTg5NTkyODR9.y6GWLEIfzUXxEhxm-2TbmqXNdSfjqiuRvfNV2d9v1d_iiLHcap4ozKm4Vu77HyHu
 
 # {
-#     "author": "6079023faa88631b881d417c",
-#     "partner": "60790238aa88631b881d4179"
+#     "author": "607f5ef3204ce51654a599b1",
+#     "partner": "607f5f27833e12265cc31b39"
 # }
 
 # GET http://localhost:4000/dialogs/6079023faa88631b881d417c
@@ -34,9 +43,9 @@
 
 # {
 #     "text": "Hello! My name is Vasia.",
-#     "dialog_id": "607905ab58358d12b89e24f3"
+#     "dialog_id": "607f60fa10abcc22609532ed"
 # }
 
-# GET http://localhost:4000/messages?dialog=607905ab58358d12b89e24f3
+# GET http://localhost:4000/messages?dialog=607f60fa10abcc22609532ed
 
 # DELETE http://localhost:4000/messages/607c3c8787d62016683ca132

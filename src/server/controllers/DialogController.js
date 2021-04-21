@@ -53,23 +53,6 @@ class DialogController {
         })
     }
 
-    // create(req, res) {
-    //     const Users = new UserModal({
-    //         email: req.body.email,
-    //         fullName: req.body.fullName,
-    //         password: req.body.password,
-    //     })
-    
-    //     console.log('User registr ', req.body.email);
-    
-    //     Users.save()
-    //     .then(data => {
-    //         res.json(data)
-    //     }).catch(error => {
-    //         res.json(error)
-    //     })
-    // }
-
 }
 
 module.exports = DialogController;
