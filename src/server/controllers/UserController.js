@@ -1,14 +1,29 @@
 const { UserModal } = require("../schemas/")
 const { createJwtToken } = require("../utility")
 const { validationResult } = require("express-validator")
+const bcrypt = require("bcrypt")
 
 class UserController {
 
     find(req, res) {
         const id = req.params.id;
-        console.log("get ", id)
         UserModal.findById(id, (err, user) => {
             if (err) {
+                return res.status(404).json({
+                    message: 'User not found'
+                })
+            }
+            res.json(user);
+        })
+    }
+
+    getMe(req, res) {
+        const id = req.user._id;
+
+        console.log(new RegExp("AsdfERGTfds"))
+
+        UserModal.findById(id, (err, user) => {
+            if (err || !user) {
                 return res.status(404).json({
                     message: 'User not found'
                 })
@@ -64,25 +79,26 @@ class UserController {
         }
 
         UserModal.findOne({ email: postData.email }, (err, data) => {
+
             if (err) {
                 return res.status(404).json({
                     message: "User not found"
                 });
             }
 
-            if (data.password === postData.password) {
-                const token = createJwtToken(postData);
-
+            if (bcrypt.compareSync(postData.password, data.password)) {
+                const token = createJwtToken(data);
                 res.json({
                     status: "success",
-                    token
-                })
+                    token,
+                });
             } else {
-                res.json({
+                res.status(403).json({
                     status: "error",
-                    message: "Incorect password or email"
-                })
+                    message: "Incorrect password or email",
+                });
             }
+            
         })
 
     }

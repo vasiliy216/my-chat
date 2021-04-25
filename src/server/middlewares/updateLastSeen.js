@@ -1,7 +1,6 @@
 const { UserModal } = require("../schemas")
 
 const updateLastSeen = (req, res, next) => {
-    console.log("middlewares works")
     UserModal.updateOne(
         { _id: "607c58544cbea116d051e965" },
         { last_seen: new Date() },

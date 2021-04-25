@@ -1,4 +1,5 @@
 const { verifyJwtToken } = require("../utility")
+const jwt = require("jsonwebtoken")
 
 const checkAuth = (req, res, next) => {
 
@@ -8,16 +9,18 @@ const checkAuth = (req, res, next) => {
 
     const token = req.headers.token;
 
-    console.log("verifyJwtToken ", verifyJwtToken(token))
+    if (token) {
+        verifyJwtToken(token)
+            .then(data => {
+                if(data) {
+                    req.user = data.data._doc;
+                }
 
-    verifyJwtToken(token)
-    // .then(data => {
-    //     req.data = data;
-    //     next();
-    // }).catch(() => {
-    //     res.status(403).json({ message: "Invalid token" });
-    // })
-    next();
+                next();
+            }).catch(() => {
+                res.status(403).json({ message: "Invalid token" });
+            })
+    }
 
 }
 
