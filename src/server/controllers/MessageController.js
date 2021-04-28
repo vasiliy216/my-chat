@@ -27,7 +27,7 @@ class MessageController {
         const Message = new MessageModal({
             text: req.body.text,
             dialog: req.body.dialog_id,
-            partner: "6079023faa88631b881d417a"
+            partner: req.user._id
         })
     
         Message.save()

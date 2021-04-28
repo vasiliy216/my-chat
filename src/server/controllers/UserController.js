@@ -1,6 +1,7 @@
 const { UserModal } = require("../schemas/")
 const { createJwtToken } = require("../utility")
 const { validationResult } = require("express-validator")
+const { Mailer } = require("../core")
 const bcrypt = require("bcrypt")
 
 class UserController {
@@ -17,10 +18,22 @@ class UserController {
         })
     }
 
+    findUser(req, res) {
+        const query = req.query.query;
+
+        UserModal
+            .find({ fullName: new RegExp(query, 'i') })
+            .then(data => res.json(data))
+            .catch(err => {
+                return res.status(404).json({
+                    status: 'error',
+                    message: err
+                })
+            })
+    }
+
     getMe(req, res) {
         const id = req.user._id;
-
-        console.log(new RegExp("AsdfERGTfds"))
 
         UserModal.findById(id, (err, user) => {
             if (err || !user) {
@@ -30,6 +43,43 @@ class UserController {
             }
             res.json(user);
         })
+    }
+
+    verifi(req, res) {
+        const hash = req.query.hash;
+
+        if (!hash) {
+            res.status(402).json({
+                errors: "Invalid status"
+            })
+        } else {
+            UserModal.findOne({ confirmed_hash: hash }, (err, data) => {
+                if (err || !data) {
+                    return res.status(404).json({
+                        status: "error",
+                        message: "Hash not found"
+                    })
+                }
+
+                data.confirmed = true;
+                data.save((err) => {
+
+                    if (err) {
+                        return res.status(404).json({
+                            status: "error",
+                            message: err
+                        })
+                    }
+
+                    res.json({
+                        status: "success",
+                        message: "The account was successfully verified"
+                    })
+                })
+
+            })
+        }
+
     }
 
     delete(req, res) {
@@ -51,20 +101,46 @@ class UserController {
     }
 
     create(req, res) {
-        const Users = new UserModal({
+
+        const postData = {
             email: req.body.email,
             fullName: req.body.fullName,
             password: req.body.password,
-        })
+        }
 
-        console.log('User registr ', req.body.email);
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
+        } else {
+            const Users = new UserModal(postData)
 
-        Users.save()
-            .then(data => {
-                res.json(data)
-            }).catch(error => {
-                res.json(error)
-            })
+            Users
+                .save()
+                .then(data => {
+                    res.json(data);
+                    // Mailer.sendMail(
+                    //     {
+                    //         from: '<test_to_tst@mail.ru>',
+                    //         to: postData.email,
+                    //         subject: "Email confirmation",
+                    //         html: `Click on the <a href="http://localhost:4000/verifi?hash=${data.confirmed_hash}">confirmation link</a>`,
+                    //     },
+                    //     (err, info) => {
+                    //         if (err) console.log(err);
+                    //         else console.log(info);
+                    //     }
+                    // );
+                    
+                })
+                .catch(error => {
+                    res.status(500).json({
+                        status: "errors",
+                        message: error
+                    })
+                })
+
+        }
+
     }
 
     login(req, res) {
@@ -98,7 +174,7 @@ class UserController {
                     message: "Incorrect password or email",
                 });
             }
-            
+
         })
 
     }

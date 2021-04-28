@@ -1,9 +1,8 @@
 const { verifyJwtToken } = require("../utility")
-const jwt = require("jsonwebtoken")
 
 const checkAuth = (req, res, next) => {
 
-    if (req.path === "/users/login" || req.path === "/users/registr") {
+    if (req.path === "/user/login" || req.path === "/user/registr") {
         return next();
     }
 

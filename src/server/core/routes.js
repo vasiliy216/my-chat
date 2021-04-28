@@ -17,12 +17,14 @@ const createRoutes = (app) => {
     const Message = new MessageController();
     
     app.get('/user/me', User.getMe);
+    app.get('/user/verifi', User.verifi);
+    app.get('/user/find', User.findUser);
     app.get('/user/:id', User.find);
     app.delete('/user/:id', User.delete);
     app.post('/user/registr', registerValidation, User.create);
     app.post('/user/login', loginValidation, User.login);
     
-    app.get('/dialogs/:id', Dialog.index);
+    app.get('/dialogs', Dialog.index);
     app.delete('/dialogs/:id', Dialog.delete);
     app.post('/dialogs', Dialog.create);
     

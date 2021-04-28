@@ -28,6 +28,9 @@ const UserSchema = new mongoose.Schema(
         last_seen: {
             type: Date,
             default: new Date()
+        },
+        confirmed_hash: {
+            type: String
         }
     },
     {
@@ -43,7 +46,7 @@ UserSchema.pre('save', async function(next) {
 
     // generate a salt
     user.password = await generatorPasswordHash(user.password);
-    user.confirm_hash = await generatorPasswordHash(new Date().toString());
+    user.confirmed_hash = await generatorPasswordHash(new Date().toString());
 });
 
 const UserModal = mongoose.model('User', UserSchema);
