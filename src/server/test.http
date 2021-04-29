@@ -1,21 +1,21 @@
 // User
 
 //SinUp
-POST http://localhost:4000/user/registr
-Content-Type: application/json
+# POST http://localhost:4000/user/registr
+# Content-Type: application/json
 
-{
-    "email":"vasiliypunko@mail.ru",
-    "fullName":"Vasia",
-    "password":"1234567"
-}
+# {
+#     "email":"vasiliypunko@mail.ru",
+#     "fullName":"Vasia",
+#     "password":"1234567"
+# }
 
 //SinIn
 # POST http://localhost:4000/user/login
 # Content-Type: application/json
 
 # {
-#     "email":"test2@asd.ru",
+#     "email":"vasiliypunko@mail.ru",
 #     "password":"1234567"
 # }
 
@@ -59,13 +59,14 @@ Content-Type: application/json
 
 // Message
 
-# POST http://localhost:4000/messages
-# Content-Type: application/json
+POST http://localhost:4000/messages
+Content-Type: application/json
+token: eyJhbGciOiJIUzM4NCIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7IiRfXyI6eyJzdHJpY3RNb2RlIjp0cnVlLCJzZWxlY3RlZCI6e30sImdldHRlcnMiOnt9LCJfaWQiOiI2MDg4YjljYTY1ZDQxYzE2MmNlOWU2ZjkiLCJ3YXNQb3B1bGF0ZWQiOmZhbHNlLCJhY3RpdmVQYXRocyI6eyJwYXRocyI6eyJwYXNzd29yZCI6ImluaXQiLCJmdWxsTmFtZSI6ImluaXQiLCJlbWFpbCI6ImluaXQiLCJjb25maXJtZWQiOiJpbml0IiwiYXZhdGFyIjoiaW5pdCIsImxhc3Rfc2VlbiI6ImluaXQiLCJfaWQiOiJpbml0IiwiY3JlYXRlZEF0IjoiaW5pdCIsInVwZGF0ZWRBdCI6ImluaXQiLCJjb25maXJtZWRfaGFzaCI6ImluaXQiLCJfX3YiOiJpbml0In0sInN0YXRlcyI6eyJpZ25vcmUiOnt9LCJkZWZhdWx0Ijp7fSwiaW5pdCI6eyJfaWQiOnRydWUsImNvbmZpcm1lZCI6dHJ1ZSwiYXZhdGFyIjp0cnVlLCJsYXN0X3NlZW4iOnRydWUsImVtYWlsIjp0cnVlLCJmdWxsTmFtZSI6dHJ1ZSwicGFzc3dvcmQiOnRydWUsImNyZWF0ZWRBdCI6dHJ1ZSwidXBkYXRlZEF0Ijp0cnVlLCJjb25maXJtZWRfaGFzaCI6dHJ1ZSwiX192Ijp0cnVlfSwibW9kaWZ5Ijp7fSwicmVxdWlyZSI6e319LCJzdGF0ZU5hbWVzIjpbInJlcXVpcmUiLCJtb2RpZnkiLCJpbml0IiwiZGVmYXVsdCIsImlnbm9yZSJdfSwicGF0aHNUb1Njb3BlcyI6e30sImNhY2hlZFJlcXVpcmVkIjp7fSwiJHNldENhbGxlZCI6e30sImVtaXR0ZXIiOnsiX2V2ZW50cyI6e30sIl9ldmVudHNDb3VudCI6MCwiX21heExpc3RlbmVycyI6MH0sIiRvcHRpb25zIjp7InNraXBJZCI6dHJ1ZSwiaXNOZXciOmZhbHNlLCJ3aWxsSW5pdCI6dHJ1ZSwiZGVmYXVsdHMiOnRydWV9fSwiaXNOZXciOmZhbHNlLCIkbG9jYWxzIjp7fSwiJG9wIjpudWxsLCJfZG9jIjp7ImNvbmZpcm1lZCI6ZmFsc2UsImF2YXRhciI6bnVsbCwibGFzdF9zZWVuIjoiMjAyMS0wNC0yOFQwMToyNjozMi4yNjRaIiwiX2lkIjoiNjA4OGI5Y2E2NWQ0MWMxNjJjZTllNmY5IiwiZW1haWwiOiJ2YXNpbGl5cHVua29AbWFpbC5ydSIsImZ1bGxOYW1lIjoiVmFzaWEiLCJwYXNzd29yZCI6IiQyYiQxMCQzbk1vYVV5VzRTaFZ2UTVZeEhIVTIua3YwbUJ3aG1KV2E0VXBTa3hsZzNKVnM3QW9XMUJNVyIsImNyZWF0ZWRBdCI6IjIwMjEtMDQtMjhUMDE6MjY6MzQuODc2WiIsInVwZGF0ZWRBdCI6IjIwMjEtMDQtMjhUMDE6MjY6MzQuODc2WiIsImNvbmZpcm1lZF9oYXNoIjoiJDJiJDEwJG02bG5selNyWkxXMUFYNVNOZ2FDN3VCNDVZYzN2V2pjQ1NlUXZuSFEuaDJFUThWbGlFdXhxIiwiX192IjowfSwiJGluaXQiOnRydWV9LCJpYXQiOjE2MTk2NjE5MjQsImV4cCI6MTYyMDI2NjcyNH0.lkqnVERkJZev_OzX1hX-MZDACt4WuAFVE3QgO1RysanfJFybki5_lcT4OVeJ5dfd
 
-# {
-#     "text": "Hello! My name is Vasia.",
-#     "dialog_id": "607f60fa10abcc22609532ed"
-# }
+{
+    "text": "Hello! My name is Vasia.",
+    "dialog_id": "60860c6b324f692c2c78db86"
+}
 
 # GET http://localhost:4000/messages?dialog=607f60fa10abcc22609532ed
 

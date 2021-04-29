@@ -12,7 +12,14 @@ dotevn.config()
 const { createRoutes } = require("./core")
 require("./core/db")
 
-createRoutes(app);
+io.on("connect", function(socket) {
+    console.log("connected")
+    socket.on("MES", (asd) => {
+        console.log(asd)
+    })
+})
+
+createRoutes(app, io);
 
 http.listen(process.env.PORT, () => {
     console.log(`Server: http://localhost:${process.env.PORT}`);

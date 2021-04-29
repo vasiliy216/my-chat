@@ -2,7 +2,11 @@ const { MessageModal } = require("../schemas/")
 
 class MessageController {
 
-    // Поиск всех сообщений
+    constructor(io, data) {
+        this.io = io;
+        this.data = data;
+    }
+
     index(req, res) { 
         const dialog_id = req.query.dialog;
 
@@ -22,17 +26,19 @@ class MessageController {
 
     }
 
-    // Создание первого сообщения
-    create(req, res) {
+    create (req, res) {
         const Message = new MessageModal({
             text: req.body.text,
             dialog: req.body.dialog_id,
             partner: req.user._id
         })
-    
+
+        console.log(this.data)
+
         Message.save()
         .then(data => {
-            res.json(data)
+            // res.json(data);
+            this.io.emit("MESSAGE", data);
         }).catch(error => {
             res.json(error)
         })

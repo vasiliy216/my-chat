@@ -120,12 +120,12 @@ class UserController {
                     res.json(data);
                     // Mailer.sendMail(
                     //     {
-                    //         from: '<test_to_tst@mail.ru>',
+                    //         from: 'test_to_tst@mail.ru',
                     //         to: postData.email,
                     //         subject: "Email confirmation",
                     //         html: `Click on the <a href="http://localhost:4000/verifi?hash=${data.confirmed_hash}">confirmation link</a>`,
                     //     },
-                    //     (err, info) => {
+                    //     function (err, info) {
                     //         if (err) console.log(err);
                     //         else console.log(info);
                     //     }

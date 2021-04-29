@@ -5,7 +5,7 @@ const { UserController, DialogController, MessageController } = require("../cont
 const { updateLastSeen, checkAuth } = require("../middlewares")
 const { loginValidation, registerValidation } = require("../utility/validations")
 
-const createRoutes = (app) => {
+const createRoutes = (app, io) => {
 
     app.use(cors());
     app.use(bodyParser.json());
@@ -14,7 +14,7 @@ const createRoutes = (app) => {
     
     const User = new UserController();
     const Dialog = new DialogController();
-    const Message = new MessageController();
+    const Message = new MessageController(io, "asd");
     
     app.get('/user/me', User.getMe);
     app.get('/user/verifi', User.verifi);
