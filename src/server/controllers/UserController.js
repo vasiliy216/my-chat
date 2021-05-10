@@ -22,7 +22,11 @@ class UserController {
         const query = req.query.query;
 
         UserModal
-            .find({ fullName: new RegExp(query, 'i') })
+            .find()
+            .or([
+                { fullName: new RegExp(query, 'i') },
+                { email: new RegExp(query, 'i') }
+            ])
             .then(data => res.json(data))
             .catch(err => {
                 return res.status(404).json({
@@ -130,7 +134,7 @@ class UserController {
                     //         else console.log(info);
                     //     }
                     // );
-                    
+
                 })
                 .catch(error => {
                     res.status(500).json({
@@ -156,7 +160,7 @@ class UserController {
 
         UserModal.findOne({ email: postData.email }, (err, data) => {
 
-            if (err) {
+            if (err || !data) {
                 return res.status(404).json({
                     message: "User not found"
                 });

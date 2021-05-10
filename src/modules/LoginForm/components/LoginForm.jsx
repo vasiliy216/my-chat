@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+import '../../style.scss'
+
 const LoginForm = props => {
     const {
         values,
@@ -8,7 +10,8 @@ const LoginForm = props => {
         errors,
         handleChange,
         handleSubmit,
-        handleBlur
+        handleBlur,
+        isSubmitting
     } = props;
 
     return (
@@ -52,7 +55,7 @@ const LoginForm = props => {
                     <i className='fas fa-eye-slash'></i>
                     {touched.password && errors.password && <p className="error_mes">{errors.password}</p>}
                 </label>
-                <button onClick={handleSubmit} type='submit' className="button_form">SIN IN</button>
+                <button disabled={isSubmitting} onClick={handleSubmit} type='submit' className="button_form">SIN IN</button>
             </div>
         </form>
     )

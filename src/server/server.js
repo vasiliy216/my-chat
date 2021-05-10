@@ -1,23 +1,16 @@
 const express = require("express")
 const dotevn = require("dotenv")
 const { createServer } = require("http")
-const socket = require("socket.io")
+
+const { createRoutes, createSocket } = require("./core")
 
 const app = express();
 const http = createServer(app);
-const io = socket(http);
+const io = createSocket(http);
 
 dotevn.config()
 
-const { createRoutes } = require("./core")
 require("./core/db")
-
-io.on("connect", function(socket) {
-    console.log("connected")
-    socket.on("MES", (asd) => {
-        console.log(asd)
-    })
-})
 
 createRoutes(app, io);
 

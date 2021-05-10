@@ -1,11 +1,11 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import './style.scss'
 
-const IconNoSearch = () => {
+const IconNoSearch = ({text}) => {
     return (
         <div className="no_dialogs">
             <i className="fas fa-user-slash"></i>
-            <p className="no_dialogs_message">Nothing found</p>
+            <p className="no_dialogs_message">{text}</p>
         </div>
     )
 }

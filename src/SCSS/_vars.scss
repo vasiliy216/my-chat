@@ -1,14 +1,17 @@
-$grey : #8587ad;
-$grey-lite : #dfe5ec;
+:root {
+    --im-textarea-border: 2px solid rgba(119, 119, 119, .8); 
+    --im-textarea-border-hover: 2px solid rgba(17, 192, 162, .8); 
 
-$turquoise : #0fd9b6;
-$turquoise-dark : #11c0a2;
-$turquoise-hover : #10aa90;
-$turquoise-lite : #e7ebf0;
+    --not-important-elements: #777777;
 
-$black : rgb(15, 16, 35);
-$dark : #03041a;
+    --background: #e7ebf0; 
+}
 
-$time : .3s;
+.dark-mode {
+    --im-textarea-border: 2px solid rgba(119, 119, 119, .8); 
+    --im-textarea-border-hover: 2px solid rgba(17, 192, 162, .8); 
 
-$red : #a80000;
+    --not-important-elements: #777777;
+
+    --background: #e7ebf0; 
+}

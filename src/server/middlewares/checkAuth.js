@@ -2,7 +2,7 @@ const { verifyJwtToken } = require("../utility")
 
 const checkAuth = (req, res, next) => {
 
-    if (req.path === "/user/login" || req.path === "/user/registr") {
+    if (req.path === "/user/login" || req.path === "/user/registr" || req.path === "/user/verifi") {
         return next();
     }
 
@@ -11,7 +11,7 @@ const checkAuth = (req, res, next) => {
     if (token) {
         verifyJwtToken(token)
             .then(data => {
-                if(data) {
+                if (data) {
                     req.user = data.data._doc;
                 }
 

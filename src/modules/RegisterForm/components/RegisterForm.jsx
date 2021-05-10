@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import PasswordStrengtMeter from '../../Validate/PasswordStrengtMeter'
 
+import '../../style.scss'
+
 const RegisterForm = props => {
     const {
         values,
@@ -9,7 +11,8 @@ const RegisterForm = props => {
         errors,
         handleChange,
         handleSubmit,
-        handleBlur
+        handleBlur,
+        isSubmitting
     } = props;
 
     return (
@@ -24,17 +27,17 @@ const RegisterForm = props => {
                         <i className="fas fa-user"></i>
                     </span>
                     <input
-                        id="name"
+                        id="fullName"
                         type="text"
-                        name="name"
+                        name="fullName"
                         placeholder="Enter a name"
-                        value={values.name}
+                        value={values.fullName}
                         onChange={handleChange}
                         onBlur={handleBlur}
-                        className={touched.name && errors.name ? "error_form" : ''}
+                        className={touched.fullName && errors.fullName ? "error_form" : ''}
                         required />
-                    {!touched.name ? '' : errors.name ? <i className="fas fa-circle"></i> : <i className="fas fa-check-circle"></i>}
-                    {touched.name && errors.name && <p className="error_mes">{ errors.name }</p>}
+                    {!touched.fullName ? '' : errors.fullName ? <i className="fas fa-circle"></i> : <i className="fas fa-check-circle"></i>}
+                    {touched.fullName && errors.fullName && <p className="error_mes">{ errors.fullName }</p>}
                 </label>
                 <label className="email">
                     <span>
@@ -71,7 +74,7 @@ const RegisterForm = props => {
                     {touched.password && errors.password && <p className="error_mes">{ errors.password }</p>}
                 </label>
                 <PasswordStrengtMeter password={errors.password ? '' : values.password} />
-                <button onClick={handleSubmit} type='submit' className="button_form">SIN UP</button>
+                <button disabled={isSubmitting} onClick={handleSubmit} type='submit' className="button_form">SIN UP</button>
             </div>
         </form>
     )

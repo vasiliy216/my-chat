@@ -2,8 +2,11 @@ import RegisterForm from '../components/RegisterForm'
 import { withFormik } from 'formik'
 import { Validate } from '../../index'
 
+import { User } from '../../../redux/actions'
+import store from '../../../redux/store'
+
 export default withFormik({
-    mapPropsToValues: () => ({ email: '', name: '', password: '' }),
+    mapPropsToValues: () => ({ email: '', fullName: '', password: '' }),
     validate: values => {
         let errors = {};
 
@@ -12,11 +15,17 @@ export default withFormik({
         return errors;
     },
 
-    handleSubmit: (values, { setSubmitting }) => {
-        setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
-            setSubmitting(false);
-        }, 1000);
+    handleSubmit: (values, { setSubmitting, props }) => {
+
+        store
+            .dispatch(User.fetchUserRegistr(values))
+            .then(({ data }) => {
+                props.history.push('/register/verifi?hash=' + data.confirmed_hash);
+                setSubmitting(false)
+            }).catch((err) => {
+                console.log(err)
+                setSubmitting(false)
+            })
     },
     displayName: "RegisterForm"
 

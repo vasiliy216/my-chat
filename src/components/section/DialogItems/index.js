@@ -1,30 +1,12 @@
 import React from 'react'
 import format from 'date-fns/format'
 import isToday from 'date-fns/isToday'
+import { Link } from 'react-router-dom'
+
 import Icon from '../../basic/icon-check/Icon'
+import { Avatar } from '../../common'
 
 import './style.scss'
-
-const isAvatar = (ava, name) => {
-    if (ava) {
-        return (
-            <img src={ava} alt={`Avatar ${ava}`} />
-        )
-    } else {
-        let letters = '0123456789ABCDEF';
-        let color = '#';
-
-        for (var i = 0; i < 6; i++) {
-            color += letters[Math.floor(Math.random() * 16)];
-        }
-
-        let firstLetter = name[0] + name.split(' ')[1][0];
-
-        return (
-            <div className="dialog_no_avatar" style={{ background: color }}>{firstLetter}</div>
-        )
-    }
-}
 
 const getDate = date => {
     if (isToday(new Date(date))) {
@@ -34,34 +16,38 @@ const getDate = date => {
     }
 }
 
-const DialogItem = ({ _id, user, text, date, unreaded, isMe, onSelect }) => {
+const DialogItem = ({ _id, lastMessage, isMe, currentDialogId, partner, removeDialogId }) => {
     return (
-        <li className="im_dialog_wraper" onClick={onSelect.bind(this, _id)}>
-            <a className="im_dialog">
-                <div className="im_dialog_meta">{getDate(date)}</div>
-                <div className="im_dialog_avatar">
-                    {isAvatar(
-                        user.avatar,
-                        user.fullname
-                    )}
+        <li className="im_dialog_wraper">
+            
+            <i className="fas fa-times" title="Delete" onClick={removeDialogId.bind(this, _id)}></i>
+            
+            <Link to={`/dialog/${_id}`} className="im_dialog" onClick={currentDialogId.bind(this, _id)}>
+                <div className="im_dialog_meta">{getDate(lastMessage.createdAt)}</div>
+                                
+                <div className="avatar_body is_dialog">
+                    <Avatar user={partner} />
                 </div>
+
+                {partner.isOnline && <i className='fas fa-circle'></i>}
+
                 <div className="im_dialog_message">
-                    <div className="im_dialog_title">{user.fullname}</div>
+                    <div className="im_dialog_title">{partner.fullName}</div>
 
                     {isMe ?
                         <>
-                            <div className="im_message"><span>Вы: </span>{text}</div>
-                            <Icon isMe={true} isReading={false} />
+                            <div className="im_message"><span>Вы: </span>{lastMessage.text}</div>
+                            <Icon isMe={true} isReading={lastMessage.readed} />
                         </>
                         :
                         <>
-                            <div className="im_message">{text}</div>
-                            {unreaded > 0 && <div className="im_readed_message">{unreaded}</div>}
+                            <div className="im_message">{lastMessage.text}</div>
+                            {lastMessage.unread > 0 && <div className="im_readed_message">{lastMessage.unread}</div>}
                         </>
                     }
 
                 </div>
-            </a>
+            </Link>
         </li>
     )
 }

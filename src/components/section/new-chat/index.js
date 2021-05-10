@@ -3,7 +3,7 @@ import { Message } from '../../'
 import Messages from '../../../containers/Messages'
 import Dialogs from '../../../containers/Dialogs'
 
-import './style.scss'
+// import './style.scss'
 
 const NewChat = () => {
     return (

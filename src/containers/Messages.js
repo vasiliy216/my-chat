@@ -4,36 +4,45 @@ import { connect } from 'react-redux'
 import { Message } from '../redux/actions'
 import store from '../redux/store'
 import { Messages as NewMessages } from '../components/'
-
-import messageJSON from '../message.json'
+import { Socket } from '../core'
 
 //Если прошлый id не совподает с настоящим, то тогда отправлять запрос
 
-const Messages = ({ items, dialogId }) => {
+const Messages = ({ items, currentDialogId, fetchMessages, isLoading, addMessage, user }) => {
 
     const messageRef = useRef(null);
 
-    console.log(items, "items");
+    const onNewMessage = data => {
+        addMessage(data)
+    }
+
+    console.log(store.getState())
 
     useEffect(() => {
-        console.log(store.getState(), "store");
-    }, [dialogId]);
+        if (currentDialogId) fetchMessages(currentDialogId)
+
+        Socket.on('SERVER:NEW_MESSAGE', onNewMessage)
+
+        return () => {
+            Socket.removeListener('SERVER:NEW_MESSAGE', onNewMessage)
+        }
+    }, [currentDialogId]);
 
     useEffect(() => {
         messageRef.current.scrollTo(0, 999999);
-    }, [dialogId])
-
-    const value = messageJSON.find(val => val._id === dialogId);
-    console.log(value, "value")
+    }, [items])
 
     return <NewMessages
         BlockRef={messageRef}
-        items= {items}
-        {...value}
+        items={items}
+        isLoading={isLoading}
+        user={user}
     />
 }
 
-export default connect(({ messages, dialogs }) => ({
-    dialogId: messages.dialogId,
-    items: dialogs.items
+export default connect(({ messages, dialogs, user }) => ({
+    currentDialogId: dialogs.currentDialogId,
+    items: messages.items,
+    isLoading: messages.isLoading,
+    user: user.data
 }), Message)(Messages);

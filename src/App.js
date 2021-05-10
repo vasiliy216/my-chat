@@ -1,22 +1,25 @@
 import React from 'react';
-import { Route } from 'react-router-dom'
+import { Redirect, Route, Switch } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 import Auth from '../src/pages/Auth/Auth'
-import { NewChat } from '../src/components/'
-import Home from '../src/pages/Home/Home' 
+import Home from '../src/pages/Home/Home'
 
 import '../src/SCSS/style.scss'
 
-function App() {
+const App = props => {
+
+  const { isAuth } = props;
 
   return (
-    <>
-      <Route exact path={["/", "/login", "/register"]} component={Auth} />
-      <Route exact path="/im" component={NewChat} />
-      <Route exact path="/message" component={Home} />
-      {/* <Route exact path="/asd" component={} /> */}
-    </>
-  );
+
+    <Switch>
+      <Route exact path={["/login", "/register", "/register/verifi"]} component={Auth} />
+      <Route path="/" render={() => (isAuth ? <Home /> : <Redirect to="/login" />)} />
+    </Switch>
+
+  )
+
 }
 
-export default App;
+export default connect(({ user }) => ({ isAuth: user.isAuth }))(App);

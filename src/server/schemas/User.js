@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const { generatorPasswordHash } = require("../utility")
 const { isEmail } = require("validator")
+const differenceInMinutes = require('date-fns/differenceInMinutes')
 
 const UserSchema = new mongoose.Schema(
     {
@@ -38,7 +39,15 @@ const UserSchema = new mongoose.Schema(
     }
 )
 
-UserSchema.pre('save', async function(next) {
+UserSchema.virtual("isOnline").get(function () {
+    return differenceInMinutes(new Date(), this.last_seen) < 5;
+});
+
+UserSchema.set("toJSON", {
+    virtuals: true,
+});
+
+UserSchema.pre('save', async function (next) {
     var user = this;
 
     // only hash the password if it has been modified (or is new)

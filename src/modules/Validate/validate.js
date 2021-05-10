@@ -9,7 +9,7 @@ export default ({ isRegistration, values, errors }) => {
             }
         },
         name: value => {
-            if (!value) errors.name = "Please, enter a name!";
+            if (!value) errors.fullName = "Please, enter a name!";
         },
         password: value => {
             if (!value) errors.password = "Please, enter a password!";

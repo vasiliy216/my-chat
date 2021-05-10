@@ -9,12 +9,12 @@ const createRoutes = (app, io) => {
 
     app.use(cors());
     app.use(bodyParser.json());
-    app.use(updateLastSeen);
     app.use(checkAuth);
+    app.use(updateLastSeen);
     
     const User = new UserController();
-    const Dialog = new DialogController();
-    const Message = new MessageController(io, "asd");
+    const Dialog = new DialogController(io);
+    const Message = new MessageController(io);
     
     app.get('/user/me', User.getMe);
     app.get('/user/verifi', User.verifi);
@@ -24,13 +24,13 @@ const createRoutes = (app, io) => {
     app.post('/user/registr', registerValidation, User.create);
     app.post('/user/login', loginValidation, User.login);
     
-    app.get('/dialogs', Dialog.index);
-    app.delete('/dialogs/:id', Dialog.delete);
-    app.post('/dialogs', Dialog.create);
+    app.get('/dialogs', (req, res) => Dialog.index(req, res));
+    app.delete('/dialogs/:id', (req, res) => Dialog.delete(req, res));
+    app.post('/dialogs', (req, res) => Dialog.create(req, res));
     
-    app.get('/messages', Message.index);
-    app.delete('/messages/:id', Message.delete);
-    app.post('/messages', Message.create);
+    app.get('/messages', (req, res) => Message.index(req, res));
+    app.delete('/messages/:id', (req, res) => Message.delete(req, res));
+    app.post('/messages', (req, res) => Message.create(req, res));
 
 }
 

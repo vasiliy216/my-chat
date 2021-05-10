@@ -13,7 +13,8 @@ const DialogSchema = new mongoose.Schema(
             required: true
         },
         lastMessage: {
-            type: String
+            type: mongoose.Types.ObjectId,
+            ref: "Message"
         }
     },
     {
