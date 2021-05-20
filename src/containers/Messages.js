@@ -10,13 +10,27 @@ import { Socket } from '../core'
 
 const Messages = ({ items, currentDialogId, fetchMessages, isLoading, addMessage, user }) => {
 
+    const [isTyping, setIsTyping] = useState(false);
+    let typingTimeoutId = null;
+
     const messageRef = useRef(null);
 
     const onNewMessage = data => {
         addMessage(data)
     }
 
-    console.log(store.getState())
+    const toggleIsTyping = () => {
+        setIsTyping(true);
+        clearInterval(typingTimeoutId);
+        typingTimeoutId = setTimeout(() => {
+            setIsTyping(false);
+        }, 3000);
+    };
+
+    useEffect(() => {
+        Socket.on('DIALOGS:TYPING', () => console.log('yes'));
+    }, []);
+
 
     useEffect(() => {
         if (currentDialogId) fetchMessages(currentDialogId)

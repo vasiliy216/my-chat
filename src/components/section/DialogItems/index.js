@@ -16,7 +16,7 @@ const getDate = date => {
     }
 }
 
-const DialogItem = ({ _id, lastMessage, isMe, currentDialogId, partner, removeDialogId }) => {
+const DialogItem = ({ _id, isMe, lastMessage, currentDialogId, partner, removeDialogId }) => {
     return (
         <li className="im_dialog_wraper">
             
@@ -34,7 +34,7 @@ const DialogItem = ({ _id, lastMessage, isMe, currentDialogId, partner, removeDi
                 <div className="im_dialog_message">
                     <div className="im_dialog_title">{partner.fullName}</div>
 
-                    {isMe ?
+                    {lastMessage.partner._id === isMe ?
                         <>
                             <div className="im_message"><span>Вы: </span>{lastMessage.text}</div>
                             <Icon isMe={true} isReading={lastMessage.readed} />
@@ -42,7 +42,7 @@ const DialogItem = ({ _id, lastMessage, isMe, currentDialogId, partner, removeDi
                         :
                         <>
                             <div className="im_message">{lastMessage.text}</div>
-                            {lastMessage.unread > 0 && <div className="im_readed_message">{lastMessage.unread}</div>}
+                            {/* <Icon isMe={false} isReading={lastMessage.readed} /> */}
                         </>
                     }
 

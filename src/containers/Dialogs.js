@@ -19,21 +19,19 @@ const Dialogs = (props) => {
         updateReadedStatus
     } = props;
 
-    console.log(items)
-
     const [state, setState] = useState('');
     const [filter, setFilter] = useState([...items]);
     const [serchUsers, setSerchUsers] = useState([])
 
     const OnChangInput = (value = "") => {
         setFilter(
-            items.filter(dialog_name => dialog_name.partner.email.toLowerCase().indexOf(value.toLowerCase()) >= 0 ||
+            items.filter(dialog_name => dialog_name.author.fullName.toLowerCase().indexOf(value.toLowerCase()) >= 0 ||
                 dialog_name.partner.fullName.toLowerCase().indexOf(value.toLowerCase()) >= 0)
         )
 
         if (!!value) {
             fetchUsers(value).then((users) => {
-                setSerchUsers(users.filter(value => value.email != user.email) ||
+                setSerchUsers(users.filter(value => value.email != user.email) &&
                     users.filter(value => value.fullName != user.fullName))
             });
         } else {

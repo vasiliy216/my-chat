@@ -37,7 +37,7 @@ export default (state = initialState, { type, payload }) => {
                 ...state,
                 items: state.items.map(dialog => {
                     if (dialog._id === payload.dialogId) {
-                        dialog.lastMessage.readed = true;
+                        dialog.lastMessage.readed = dialog.lastMessage.partner !== payload.userId ? true : false;
                     }
                     return dialog;
                 }),

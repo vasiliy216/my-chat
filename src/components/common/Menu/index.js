@@ -1,7 +1,7 @@
 import React from 'react'
 import { Avatar } from '..'
 
-const Menu = ({ user, visiblePopup, toggleVisiblePopup, menuRef, UserExit }) => {
+const Menu = ({ user, visiblePopup, toggleVisiblePopup, menuRef, UserExit, DarkMode }) => {
 
     return (
         <div className="header_btn" ref={menuRef}>
@@ -21,7 +21,9 @@ const Menu = ({ user, visiblePopup, toggleVisiblePopup, menuRef, UserExit }) => 
                         </div>
                     </li>
                     <div className="top_profile_sep"></div>
-                    <li className="menu_dark_mode">Dark mode</li>
+                    <li className="menu_dark_mode">Thema:
+                    {DarkMode ? " Dark" : " Light"}
+                    </li>
                     <li className="menu_user_exit" onClick={UserExit}>Exit</li>
                 </ul>
             }

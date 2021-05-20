@@ -3,8 +3,6 @@ import { Message } from '../../'
 import Messages from '../../../containers/Messages'
 import Dialogs from '../../../containers/Dialogs'
 
-// import './style.scss'
-
 const NewChat = () => {
     return (
         <div className="chat_parrent">

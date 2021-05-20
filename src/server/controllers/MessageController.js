@@ -53,6 +53,8 @@ class MessageController {
             partner: req.user._id
         })
 
+        this.updateReadStatus(res, req.user._id, req.body.dialog_id);
+
         Message
             .save()
             .then(data => {

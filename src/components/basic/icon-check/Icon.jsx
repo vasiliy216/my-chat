@@ -2,7 +2,13 @@ import React, { Fragment } from 'react'
 import './style.scss'
 
 function getIcon(Me, Reading) {
-    if (Me && Reading) {
+    // if (!Me) {
+    //     return (
+    //         <i className="fas fa-circle icon_unread_dialogs"></i>
+    //     )
+    // }
+    // else
+     if (Me && Reading) {
         return (
             <i className="fas fa-check-double icon_check_dialogs"></i>
         )
@@ -16,7 +22,7 @@ function getIcon(Me, Reading) {
 const Icon = ({ isMe, isReading }) => {
     return (
         <Fragment>
-            { getIcon(isMe ,isReading) }
+            { getIcon(isMe, isReading)}
         </Fragment>
     )
 }

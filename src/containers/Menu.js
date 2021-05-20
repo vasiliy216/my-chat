@@ -34,6 +34,7 @@ const Menu = ({ user, fetchUserExit }) => {
         visiblePopup={visiblePopup}
         menuRef={menuRef}
         UserExit={UserExit}
+        DarkMode={false}
     />
 }
 

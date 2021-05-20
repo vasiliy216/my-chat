@@ -38,10 +38,10 @@ const Dialogs = (props) => {
                                     <DialogItem
                                         key={item._id}
                                         {...item}
-                                        isMe={item.author._id === user._id}
+                                        partner={user.id !== item.author._id ? item.author : item.partner}
+                                        isMe={user._id}
                                         currentDialogId={currentDialogId}
                                         removeDialogId={removeDialogId}
-                                        unreaded={1}
                                     />
                                 )
                             })
