@@ -30,9 +30,17 @@ const Dialogs = (props) => {
         )
 
         if (!!value) {
-            fetchUsers(value).then((users) => {
-                setSerchUsers(users.filter(value => value.email != user.email) &&
-                    users.filter(value => value.fullName != user.fullName))
+            fetchUsers(value).then((users) => { //убираем пользователей, с которыми у нас есть диалог
+
+                let newUsers = users.filter(function (item, index, currentArrey) {
+                    for (let i = 0; i < currentArrey.length; i++) {
+                        if (items[i].author.email === item.email || items[i].partner.email === item.email) return false;
+                    }
+                    return true;
+                })
+
+                setSerchUsers(newUsers);
+
             });
         } else {
             setSerchUsers(value);
